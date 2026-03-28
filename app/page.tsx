@@ -7,36 +7,44 @@ import Footer from "./components/Footer";
 
 const wineCards = [
   {
-    region: "Mosel, Germany",
-    name: "Schloss Lieser Riesling Kabinett",
-    vintage: "2021 Vintage",
-    price: "$42.00",
+    region: "Saar, Germany",
+    name: "Scharzhofberger Riesling GG",
+    producer: "Von Hövel",
+    vintage: "2022",
+    price: "₪320",
+    score: "96 Falstaff",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVUtHD0ENaf43f8iVhdgUFFVWHVzf7TxomifKjPh-DjPMWirne2vw6mVxOGWj4MM6G6hvfAKpk-TFv1NurVQFT3Y5gBZ9hvaoYsLtvV-xCuA0BU45G-CeG8YgRGJZ1fjkgzvw8KiEWtLxavCFxg-rTDvZSzNVj2pvjyDKZd3tu5O3xSWnf5ZlZQ_Hg_XznAG_XsjL4MxClJMwGNvdIDp2t0N9E1u2DVWjn9MsCd9heiaTO1z-QWQ9-CnWznxeeRGQHS6VXkb00",
-    href: "/catalog",
+    href: "/catalog/von-hovel-scharzhofberger-gg",
   },
   {
     region: "Burgundy, France",
-    name: "Domaine D\u2019Eug\u00e9nie Clos-Vougeot",
-    vintage: "2018 Vintage",
-    price: "$385.00",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBEnfZ34aT3GbEd00iw6TAj1zVwz-90pg-9S0wqjXy2tnDt4h6c_ckc_Ll0-qwPtUhu-37-Wd_yqj0rnPKivWrK2Rkmgww7SGtZmgY-vdhGApnH7iyNnRiEadM2A-1sCGSoK0PzwptBErjwP2trR7FRQwMz92TlhuNCNEj2dSx1WvdjHqrbLBbvJ5-DR4ORQPNDXIQbc_28qbbAUtF4zwighQ4ICbSklTsrkjSD03NSiz-3M520hmjL6syKS6vvJNaG_aZA_11e",
-    href: "/catalog",
+    name: "Chambolle-Musigny Village",
+    producer: "Dom. Georges Lignier",
+    vintage: "2022",
+    price: "₪390",
+    score: "91 Atkin",
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBv6RtOIwrO6E3hgvd0Htu0Q8I1FCspjkA50KWdHe3QpEVY_YPb3L7Cw_wYZm7wPGqJ9dHpP9t-V39lfrWDJ65xsFo7JaugUsV5g2bOGTD4j1QmAxDggGc-Bu3i1jh2xzYXClsp_8s35lCtmTknGpVZAyT1Nh2UfH7E_PGWtiiqejax82falmdLWQx70Qv_v_7oQGyIQ-O7spkif6aSQvZPUnF_VllFnryy2gSXMYCY-D8bIETMbBu9Ha5qjZWB1HKwTBY97roa",
+    href: "/catalog/lignier-chambolle",
   },
   {
-    region: "Bordeaux, France",
-    name: "Ch\u00e2teau La Conseillante Pomerol",
-    vintage: "2015 Vintage",
-    price: "$210.00",
+    region: "Moulin-à-Vent, France",
+    name: "Le Clos Monopole",
+    producer: "Dom. Labruyère",
+    vintage: "2014",
+    price: "₪445",
+    score: "17.5 Jancis Robinson",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBv6RtOIwrO6E3hgvd0Htu0Q8I1FCspjkA50KWdHe3QpEVY_YPb3L7Cw_wYZm7wPGqJ9dHpP9t-V39lfrWDJ65xsFo7JaugUsV5g2bOGTD4j1QmAxDggGc-Bu3i1jh2xzYXClsp_8s35lCtmTknGpVZAyT1Nh2UfH7E_PGWtiiqejax82falmdLWQx70Qv_v_7oQGyIQ-O7spkif6aSQvZPUnF_VllFnryy2gSXMYCY-D8bIETMbBu9Ha5qjZWB1HKwTBY97roa",
-    href: "/catalog",
+    href: "/catalog/labruyere-clos-monopole",
   },
   {
     region: "Peloponnese, Greece",
-    name: "Skouras \u2018Wild Ferment\u2019 Moschofilero",
-    vintage: "2022 Vintage",
-    price: "$28.00",
-    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA0FNFZESK-Bg56inJIrjSuAfVUWNR7Ye2E0nGwl0OYpG6Fphg87a9KsTx2VDrJw31tGJl_xCxPOI8_DlYAKhWZaz2JtiH6t1XOgnRhK_KkaVmbLrnU1FbO3u-eHznfrY3oe2pLw7Y8Dqqm0VTR3yVtrr2jtl6xHRhe5cLiu_5dDylK4rB0Iyu_s16IjOug6mYuZtuec7aYmOSwZ_9DTwYldS8ewSYAGrvWYOnf2OYC0oFQ8yRu8w9YMYNZa27oBo7yDr2xBeSS",
-    href: "/catalog",
+    name: "Malagousia High Altitude",
+    producer: "Kanakaris Winery",
+    vintage: "2024",
+    price: "₪130",
+    score: null,
+    img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVUtHD0ENaf43f8iVhdgUFFVWHVzf7TxomifKjPh-DjPMWirne2vw6mVxOGWj4MM6G6hvfAKpk-TFv1NurVQFT3Y5gBZ9hvaoYsLtvV-xCuA0BU45G-CeG8YgRGJZ1fjkgzvw8KiEWtLxavCFxg-rTDvZSzNVj2pvjyDKZd3tu5O3xSWnf5ZlZQ_Hg_XznAG_XsjL4MxClJMwGNvdIDp2t0N9E1u2DVWjn9MsCd9heiaTO1z-QWQ9-CnWznxeeRGQHS6VXkb00",
+    href: "/catalog/kanakaris-malagousia",
   },
 ];
 
@@ -47,7 +55,7 @@ const founders = [
     align: "right",
   },
   {
-    name: "Al Hasson",
+    name: "Eyal Hasson",
     bio: "With a background in fine-dining logistics and a palate refined by years of European exploration, Al oversees our operations. He ensures that every bottle, from the Grand Crus of Burgundy to the hidden gems of the Peloponnese, arrives in pristine condition.",
     align: "left",
   },
@@ -196,24 +204,6 @@ function TerroirMap() {
               </div>
             ))}
 
-            {/* Legend */}
-            <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 bg-white/90 backdrop-blur px-3 md:px-5 py-2 md:py-3 rounded-lg shadow-xl border border-outline/10">
-              <p className="font-label text-[8px] md:text-[10px] uppercase tracking-widest text-primary mb-1.5 md:mb-2 font-bold border-b border-primary/10 pb-1 md:pb-2">
-                Portfolio Legend
-              </p>
-              <div className="space-y-1 md:space-y-2">
-                {[
-                  { color: "#3c000b", label: "German Estates" },
-                  { color: "#630018", label: "French Domaines" },
-                  { color: "#A63744", label: "Greek Terroirs" },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2">
-                    <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
-                    <span className="text-[9px] md:text-xs font-headline font-semibold">{item.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Mobile region list */}
@@ -382,17 +372,23 @@ export default function HomePage() {
                       transition={{ duration: 0.5 }}
                     />
                   </div>
-                  <span className="font-label text-[10px] uppercase tracking-[0.2em] text-outline mb-2 block">
+                  <span className="font-label text-[10px] uppercase tracking-[0.2em] text-outline mb-1 block">
                     {wine.region}
                   </span>
-                  <h3 className="font-headline text-sm md:text-xl font-bold text-tertiary group-hover:text-primary-container transition-colors">
+                  <p className="font-body text-xs text-on-surface-variant mb-1">{wine.producer}</p>
+                  <h3 className="font-headline text-sm md:text-lg font-bold text-tertiary group-hover:text-primary-container transition-colors leading-snug">
                     {wine.name}
                   </h3>
-                  <div className="flex justify-between items-center mt-4 pt-4 border-t border-outline/10">
-                    <span className="font-body text-sm text-on-surface-variant italic">
+                  {wine.score && (
+                    <span className="inline-block mt-1.5 font-label text-[9px] uppercase tracking-wider text-primary-container border border-primary-container/30 px-1.5 py-0.5 rounded-full">
+                      {wine.score}
+                    </span>
+                  )}
+                  <div className="flex justify-between items-center mt-3 pt-3 border-t border-outline/10">
+                    <span className="font-body text-xs text-on-surface-variant italic">
                       {wine.vintage}
                     </span>
-                    <span className="font-label text-sm font-semibold text-tertiary">
+                    <span className="font-label text-sm font-semibold text-primary-container">
                       {wine.price}
                     </span>
                   </div>
