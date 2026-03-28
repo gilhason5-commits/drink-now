@@ -189,7 +189,7 @@ export default function HomePage() {
             </div>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-8 gap-y-10 md:gap-y-16">
             {wineCards.map((wine, i) => (
               <FadeInSection key={wine.name} delay={i * 0.1}>
                 <Link href={wine.href} className="group cursor-pointer block">
@@ -205,7 +205,7 @@ export default function HomePage() {
                   <span className="font-label text-[10px] uppercase tracking-[0.2em] text-outline mb-2 block">
                     {wine.region}
                   </span>
-                  <h3 className="font-headline text-xl font-bold text-tertiary group-hover:text-primary-container transition-colors">
+                  <h3 className="font-headline text-sm md:text-xl font-bold text-tertiary group-hover:text-primary-container transition-colors">
                     {wine.name}
                   </h3>
                   <div className="flex justify-between items-center mt-4 pt-4 border-t border-outline/10">
@@ -250,7 +250,7 @@ export default function HomePage() {
           </FadeInSection>
 
           <FadeInSection>
-            <div className="relative w-full aspect-[21/9] bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-outline/10">
+            <div className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-outline/10">
               <div className="absolute inset-0 bg-[#F2EDE1]">
                 <img
                   alt="Map of Europe"

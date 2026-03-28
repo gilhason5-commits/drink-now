@@ -267,9 +267,9 @@ export default function CatalogPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.15 }}
-        className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12"
+        className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
       >
-        <div className="lg:col-span-2 bg-surface-container-low p-6 rounded">
+        <div className="col-span-2 lg:col-span-2 bg-surface-container-low p-4 md:p-6 rounded">
           <label className="font-label text-[10px] uppercase tracking-widest text-outline mb-2 block">
             Quick Search
           </label>
@@ -326,8 +326,8 @@ export default function CatalogPage() {
         {filtered.length} {filtered.length === 1 ? "wine" : "wines"} shown
       </motion.p>
 
-      {/* Table */}
-      <div className="overflow-x-auto rounded">
+      {/* Desktop Table */}
+      <div className="hidden md:block overflow-x-auto rounded">
         <table className="w-full border-collapse">
           <thead>
             <tr className="border-b border-outline/10">
@@ -349,6 +349,52 @@ export default function CatalogPage() {
             ))}
           </tbody>
         </table>
+        {filtered.length === 0 && (
+          <div className="text-center py-24 text-on-surface-variant font-body">
+            No wines match your search.
+          </div>
+        )}
+      </div>
+
+      {/* Mobile Cards */}
+      <div className="md:hidden space-y-3">
+        {filtered.map((wine, i) => (
+          <Link key={wine.slug} href={`/catalog/${wine.slug}`}>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, delay: i * 0.02 }}
+              className="bg-surface-container-low rounded p-4 flex items-start justify-between gap-3 active:bg-surface-container"
+            >
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="font-headline font-bold text-primary italic text-sm">{wine.vintage}</span>
+                  <span className={`px-2 py-0.5 text-[9px] font-label uppercase tracking-widest rounded-full ${typeBadge[wine.type]}`}>
+                    {wine.type}
+                  </span>
+                </div>
+                <p className="font-headline font-bold text-tertiary text-base leading-snug truncate">{wine.name}</p>
+                <p className="font-body text-xs text-outline mt-0.5">{wine.producer} · {wine.region}</p>
+                {wine.score && (
+                  <span className="inline-block mt-1 font-label text-[9px] uppercase tracking-wider text-primary-container border border-primary-container/30 px-1.5 py-0.5 rounded-full">
+                    {wine.score}
+                  </span>
+                )}
+              </div>
+              <div className="shrink-0 text-right">
+                {wine.salePrice ? (
+                  <>
+                    <p className="font-body font-semibold text-primary-container">{wine.salePrice}</p>
+                    <p className="font-body text-xs text-outline line-through">{wine.price}</p>
+                  </>
+                ) : (
+                  <p className="font-body font-medium text-primary">{wine.price}</p>
+                )}
+                <span className="material-symbols-outlined text-primary-container text-sm mt-1 block">arrow_forward</span>
+              </div>
+            </motion.div>
+          </Link>
+        ))}
         {filtered.length === 0 && (
           <div className="text-center py-24 text-on-surface-variant font-body">
             No wines match your search.
