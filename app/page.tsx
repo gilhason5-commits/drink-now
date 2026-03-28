@@ -298,7 +298,7 @@ export default function HomePage() {
               Experience the expertise of{" "}
               <span className="font-semibold text-primary-container">Drink Now</span>. We
               bridge the gap between historic European estates and the modern
-              collector&apos;s table with a meticulously vetted 100-bottle library.
+              collector&apos;s table.
             </motion.p>
 
             <motion.div
