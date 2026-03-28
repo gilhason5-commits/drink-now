@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import Footer from "./components/Footer";
 
@@ -57,6 +57,185 @@ const founders = [
     align: "right",
   },
 ];
+
+const MAP_PINS = [
+  {
+    id: "mosel-saar",
+    label: "Mosel & Saar",
+    sublabel: "Germany",
+    color: "bg-primary-container",
+    dot: "#3c000b",
+    pulse: true,
+    // Positions tuned to the Europe map image
+    top: "26%", left: "49%",
+    producers: ["Carlo Schmitt", "Von Hövel", "Hermann Ludes"],
+    wines: "Riesling Kabinett · GG · Gold Reserve · Feineherb",
+  },
+  {
+    id: "nahe",
+    label: "Nahe",
+    sublabel: "Germany",
+    color: "bg-primary-container",
+    dot: "#3c000b",
+    pulse: false,
+    top: "32%", left: "47%",
+    producers: ["Kruger Rumpf"],
+    wines: "Pinot Rosé · Blanc de Noirs · SEKT Brut",
+  },
+  {
+    id: "burgundy",
+    label: "Burgundy & Chablis",
+    sublabel: "France",
+    color: "bg-[#630018]",
+    dot: "#630018",
+    pulse: false,
+    top: "42%", left: "43%",
+    producers: ["Marchand Grillot", "Pavelot", "Bitouzet-Prieur", "Meix-Foulot", "Pinson", "+ 6 more"],
+    wines: "Village · 1er Cru · Grand Cru",
+  },
+  {
+    id: "pomerol",
+    label: "Pomerol",
+    sublabel: "Bordeaux, France",
+    color: "bg-[#630018]",
+    dot: "#630018",
+    pulse: false,
+    top: "50%", left: "36%",
+    producers: ["Chateau Rouget"],
+    wines: "Pomerol 2015 · 2016 · 2018",
+  },
+  {
+    id: "greece",
+    label: "Peloponnese",
+    sublabel: "Greece",
+    color: "bg-[#A63744]",
+    dot: "#A63744",
+    pulse: false,
+    top: "65%", left: "57%",
+    producers: ["Kanakaris Winery"],
+    wines: "Roditis · Malagousia",
+  },
+];
+
+function TerroirMap() {
+  const [active, setActive] = useState<string | null>(null);
+
+  return (
+    <section className="py-16 md:py-24 bg-background overflow-hidden">
+      <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
+        <FadeInSection className="text-center mb-10 md:mb-16">
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-tertiary mb-4">
+            The Terroir Map
+          </h2>
+          <p className="font-body text-on-surface-variant max-w-2xl mx-auto text-sm md:text-base">
+            Tap a pin to explore our exclusive partnerships across Europe&apos;s most revered wine regions.
+          </p>
+        </FadeInSection>
+
+        <FadeInSection>
+          <div
+            className="relative w-full rounded-xl overflow-hidden shadow-2xl border border-outline/10"
+            style={{ aspectRatio: "16/9" }}
+          >
+            {/* Map image */}
+            <img
+              alt="Map of Europe"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "center 30%" }}
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkVpfqdV-aQRhvAQESBHUOvltJfSjhtk8E24RP8NGZ9-XgLbJW_aRuSPOciRPFqKXSo_XPJPc_KY-c08Ofxb84gUovQudbAy5kosjbfH4zi_2YsGBq3WAMKl5_zCsNz6riyxb7cN-MKJ6PbEZzf7pH7IQVU5miexMnm0TDoBSmZ9ps6Lh_AGGzJX8nrPkJpK3Ck3LGELq9FqFsR2W9Olmt8XbIPR2vMubXpkxeZSvqS_BM6fn342pbkR6RjKJ50znlkuvmQy1C"
+            />
+            <div className="absolute inset-0 bg-primary/5 mix-blend-multiply" />
+
+            {/* Click-away overlay */}
+            {active && (
+              <div className="absolute inset-0 z-10" onClick={() => setActive(null)} />
+            )}
+
+            {/* Pins */}
+            {MAP_PINS.map((pin) => (
+              <div
+                key={pin.id}
+                className="absolute z-20 -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+                style={{ top: pin.top, left: pin.left }}
+                onClick={(e) => { e.stopPropagation(); setActive(active === pin.id ? null : pin.id); }}
+              >
+                {/* Dot */}
+                <div className="relative flex items-center justify-center">
+                  {pin.pulse && (
+                    <span
+                      className="absolute w-5 h-5 rounded-full opacity-60 animate-ping"
+                      style={{ backgroundColor: pin.dot }}
+                    />
+                  )}
+                  <span
+                    className="w-3.5 h-3.5 md:w-4 md:h-4 rounded-full block ring-2 ring-white shadow-lg relative z-10 transition-transform hover:scale-125"
+                    style={{ backgroundColor: pin.dot }}
+                  />
+                </div>
+
+                {/* Tooltip */}
+                {active === pin.id && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    className="absolute z-30 bottom-full mb-2 left-1/2 -translate-x-1/2 w-44 md:w-56 bg-white/97 backdrop-blur rounded-lg shadow-2xl border border-outline/10 p-3 pointer-events-none"
+                  >
+                    <p className="font-headline font-bold text-primary-container text-sm leading-tight">{pin.label}</p>
+                    <p className="font-label text-[10px] uppercase tracking-widest text-outline mb-2">{pin.sublabel}</p>
+                    <div className="border-t border-outline/10 pt-2 space-y-1">
+                      {pin.producers.map((p) => (
+                        <p key={p} className="font-body text-xs text-tertiary font-medium">{p}</p>
+                      ))}
+                    </div>
+                    <p className="font-body text-[10px] text-outline italic mt-2">{pin.wines}</p>
+                    {/* Arrow */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white" />
+                  </motion.div>
+                )}
+              </div>
+            ))}
+
+            {/* Legend */}
+            <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 bg-white/90 backdrop-blur px-3 md:px-5 py-2 md:py-3 rounded-lg shadow-xl border border-outline/10">
+              <p className="font-label text-[8px] md:text-[10px] uppercase tracking-widest text-primary mb-1.5 md:mb-2 font-bold border-b border-primary/10 pb-1 md:pb-2">
+                Portfolio Legend
+              </p>
+              <div className="space-y-1 md:space-y-2">
+                {[
+                  { color: "#3c000b", label: "German Estates" },
+                  { color: "#630018", label: "French Domaines" },
+                  { color: "#A63744", label: "Greek Terroirs" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-2">
+                    <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
+                    <span className="text-[9px] md:text-xs font-headline font-semibold">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile region list */}
+          <div className="md:hidden mt-6 grid grid-cols-1 gap-2">
+            {MAP_PINS.map((pin) => (
+              <button
+                key={pin.id}
+                onClick={() => setActive(active === pin.id ? null : pin.id)}
+                className="flex items-start gap-3 text-left p-3 rounded-lg bg-surface-container-low border border-outline/10 active:bg-surface-container"
+              >
+                <span className="w-2.5 h-2.5 rounded-full mt-1 shrink-0" style={{ backgroundColor: pin.dot }} />
+                <div>
+                  <p className="font-headline font-bold text-sm text-tertiary">{pin.label} <span className="text-outline font-normal">· {pin.sublabel}</span></p>
+                  <p className="font-body text-xs text-on-surface-variant mt-0.5">{pin.producers.slice(0,3).join(" · ")}</p>
+                </div>
+              </button>
+            ))}
+          </div>
+        </FadeInSection>
+      </div>
+    </section>
+  );
+}
 
 function FadeInSection({
   children,
@@ -236,92 +415,7 @@ export default function HomePage() {
       </section>
 
       {/* Terroir Map */}
-      <section className="py-24 overflow-hidden bg-background">
-        <div className="max-w-screen-2xl mx-auto px-8">
-          <FadeInSection className="text-center mb-16">
-            <h2 className="font-headline text-4xl font-bold text-tertiary mb-4">
-              The Terroir Map
-            </h2>
-            <p className="font-body text-on-surface-variant max-w-2xl mx-auto">
-              Explore our exclusive partnerships across Europe&apos;s most revered wine
-              regions. Each region is hand-selected for its unique contribution to our
-              library.
-            </p>
-          </FadeInSection>
-
-          <FadeInSection>
-            <div className="relative w-full aspect-[4/3] md:aspect-[21/9] bg-surface-container rounded-xl overflow-hidden shadow-2xl border border-outline/10">
-              <div className="absolute inset-0 bg-[#F2EDE1]">
-                <img
-                  alt="Map of Europe"
-                  className="w-full h-full object-cover opacity-60 mix-blend-multiply"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkVpfqdV-aQRhvAQESBHUOvltJfSjhtk8E24RP8NGZ9-XgLbJW_aRuSPOciRPFqKXSo_XPJPc_KY-c08Ofxb84gUovQudbAy5kosjbfH4zi_2YsGBq3WAMKl5_zCsNz6riyxb7cN-MKJ6PbEZzf7pH7IQVU5miexMnm0TDoBSmZ9ps6Lh_AGGzJX8nrPkJpK3Ck3LGELq9FqFsR2W9Olmt8XbIPR2vMubXpkxeZSvqS_BM6fn342pbkR6RjKJ50znlkuvmQy1C"
-                />
-              </div>
-              <svg
-                className="absolute inset-0 w-full h-full pointer-events-none"
-                viewBox="0 0 1200 514"
-              >
-                <circle
-                  className="animate-pulse"
-                  cx="540"
-                  cy="180"
-                  fill="rgba(237,108,120,0.15)"
-                  r="60"
-                />
-                <circle cx="480" cy="260" fill="rgba(99,0,24,0.1)" r="70" />
-                <circle cx="700" cy="380" fill="rgba(253,188,187,0.2)" r="50" />
-              </svg>
-
-              {[
-                { top: "30%", left: "45%", label: "Mosel, Germany", pulse: true, color: "bg-primary-container" },
-                { top: "38%", left: "47%", label: "Pfalz, Germany", pulse: false, color: "bg-primary-container" },
-                { top: "48%", left: "42%", label: "Burgundy, France", pulse: false, color: "bg-[#630018]" },
-                { top: "55%", left: "38%", label: "Bordeaux, France", pulse: false, color: "bg-[#630018]" },
-                { top: "75%", left: "58%", label: "Peloponnese, Greece", pulse: false, color: "bg-[#A63744]" },
-              ].map((pin) => (
-                <div
-                  key={pin.label}
-                  className="absolute flex flex-col items-center"
-                  style={{ top: pin.top, left: pin.left }}
-                >
-                  <div className="relative">
-                    {pin.pulse && (
-                      <div className={`w-3 h-3 ${pin.color} rounded-full animate-ping absolute opacity-75`} />
-                    )}
-                    <div className={`w-3 h-3 ${pin.color} rounded-full relative z-10 shadow-lg`} />
-                  </div>
-                  <div className="mt-2 bg-white/95 backdrop-blur-sm px-3 py-1.5 rounded shadow-md border border-primary-container/20 text-center">
-                    <p className="font-label text-[9px] uppercase tracking-tighter text-primary-container font-bold">
-                      {pin.label}
-                    </p>
-                  </div>
-                </div>
-              ))}
-
-              <div className="absolute bottom-6 left-6 bg-white/90 backdrop-blur px-6 py-4 rounded shadow-xl border border-outline/10">
-                <p className="font-label text-[10px] uppercase tracking-widest text-primary mb-3 font-bold border-b border-primary/10 pb-2">
-                  Portfolio Legend
-                </p>
-                <div className="space-y-2">
-                  {[
-                    { color: "bg-primary-container", label: "German Estates" },
-                    { color: "bg-[#630018]", label: "French Domaines" },
-                    { color: "bg-[#A63744]", label: "Greek Terroirs" },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-center gap-3">
-                      <span className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
-                      <span className="text-xs font-headline font-semibold">
-                        {item.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </FadeInSection>
-        </div>
-      </section>
+      <TerroirMap />
 
       {/* Founders */}
       <section className="py-32 bg-surface">
