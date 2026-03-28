@@ -55,18 +55,6 @@ export default function Nav() {
           })}
         </div>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-6">
-          <button className="material-symbols-outlined text-primary scale-95 hover:scale-100 transition-transform duration-200">
-            search
-          </button>
-          <Link
-            href="/bundles"
-            className="bg-primary-container text-on-primary px-6 py-2.5 rounded text-xs font-label uppercase tracking-widest hover:bg-primary transition-all duration-300 active:scale-95"
-          >
-            Contact
-          </Link>
-        </div>
       </div>
     </motion.nav>
   );

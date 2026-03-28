@@ -146,12 +146,6 @@ export default function HomePage() {
                   arrow_right_alt
                 </span>
               </Link>
-              <Link
-                href="/wineries"
-                className="bg-white/40 backdrop-blur-md border border-primary-container/20 text-primary-container px-10 py-5 rounded font-label text-sm uppercase tracking-widest hover:bg-white/60 transition-all duration-300 active:scale-95"
-              >
-                Our Story
-              </Link>
             </motion.div>
           </div>
         </div>
