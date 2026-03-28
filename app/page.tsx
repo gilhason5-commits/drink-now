@@ -58,16 +58,18 @@ const founders = [
   },
 ];
 
+// Pin positions are % of the visible 16:9 map container.
+// The Europe map image spans roughly: left=10°W right=42°E, top=72°N bottom=30°N
+// formula: left = (lon + 10) / 52 * 100   top = (72 - lat) / 42 * 100
 const MAP_PINS = [
   {
     id: "mosel-saar",
     label: "Mosel & Saar",
     sublabel: "Germany",
-    color: "bg-primary-container",
     dot: "#3c000b",
     pulse: true,
-    // Positions tuned to the Europe map image
-    top: "26%", left: "49%",
+    // Mosel: 7°E, 50°N  → left≈33%, top≈52%
+    top: "52%", left: "33%",
     producers: ["Carlo Schmitt", "Von Hövel", "Hermann Ludes"],
     wines: "Riesling Kabinett · GG · Gold Reserve · Feineherb",
   },
@@ -75,10 +77,10 @@ const MAP_PINS = [
     id: "nahe",
     label: "Nahe",
     sublabel: "Germany",
-    color: "bg-primary-container",
     dot: "#3c000b",
     pulse: false,
-    top: "32%", left: "47%",
+    // Nahe: 8°E, 49.5°N → left≈35%, top≈53%
+    top: "58%", left: "35%",
     producers: ["Kruger Rumpf"],
     wines: "Pinot Rosé · Blanc de Noirs · SEKT Brut",
   },
@@ -86,10 +88,10 @@ const MAP_PINS = [
     id: "burgundy",
     label: "Burgundy & Chablis",
     sublabel: "France",
-    color: "bg-[#630018]",
     dot: "#630018",
     pulse: false,
-    top: "42%", left: "43%",
+    // Burgundy: 5°E, 47°N → left≈29%, top≈60%
+    top: "60%", left: "28%",
     producers: ["Marchand Grillot", "Pavelot", "Bitouzet-Prieur", "Meix-Foulot", "Pinson", "+ 6 more"],
     wines: "Village · 1er Cru · Grand Cru",
   },
@@ -97,10 +99,10 @@ const MAP_PINS = [
     id: "pomerol",
     label: "Pomerol",
     sublabel: "Bordeaux, France",
-    color: "bg-[#630018]",
     dot: "#630018",
     pulse: false,
-    top: "50%", left: "36%",
+    // Bordeaux: -0.5°E, 44.8°N → left≈18%, top≈65%
+    top: "65%", left: "18%",
     producers: ["Chateau Rouget"],
     wines: "Pomerol 2015 · 2016 · 2018",
   },
@@ -108,10 +110,10 @@ const MAP_PINS = [
     id: "greece",
     label: "Peloponnese",
     sublabel: "Greece",
-    color: "bg-[#A63744]",
     dot: "#A63744",
     pulse: false,
-    top: "65%", left: "57%",
+    // Peloponnese: 22°E, 37.5°N → left≈62%, top≈82%
+    top: "82%", left: "62%",
     producers: ["Kanakaris Winery"],
     wines: "Roditis · Malagousia",
   },
@@ -140,8 +142,7 @@ function TerroirMap() {
             {/* Map image */}
             <img
               alt="Map of Europe"
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectPosition: "center 30%" }}
+              className="absolute inset-0 w-full h-full object-cover object-center"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkVpfqdV-aQRhvAQESBHUOvltJfSjhtk8E24RP8NGZ9-XgLbJW_aRuSPOciRPFqKXSo_XPJPc_KY-c08Ofxb84gUovQudbAy5kosjbfH4zi_2YsGBq3WAMKl5_zCsNz6riyxb7cN-MKJ6PbEZzf7pH7IQVU5miexMnm0TDoBSmZ9ps6Lh_AGGzJX8nrPkJpK3Ck3LGELq9FqFsR2W9Olmt8XbIPR2vMubXpkxeZSvqS_BM6fn342pbkR6RjKJ50znlkuvmQy1C"
             />
             <div className="absolute inset-0 bg-primary/5 mix-blend-multiply" />

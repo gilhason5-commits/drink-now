@@ -643,13 +643,13 @@ export default function ProductDetailPage({ params }: { params: Promise<{ slug: 
 
           <div className="pt-6">
             <a
-              href="https://www.drinknow.co.il"
+              href="https://wa.me/972546522655"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex bg-primary-container text-on-primary px-12 py-5 font-label uppercase tracking-widest text-sm font-semibold items-center gap-3 hover:bg-primary transition-colors duration-300"
             >
-              Order at drinknow.co.il
-              <span className="material-symbols-outlined text-lg">open_in_new</span>
+              Contact Us
+              <span className="material-symbols-outlined text-lg">chat</span>
             </a>
           </div>
         </motion.div>
