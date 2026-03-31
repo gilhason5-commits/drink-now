@@ -33,7 +33,6 @@ export default function Footer() {
               { label: "Wine Catalog", href: "/catalog" },
               { label: "Our Wineries", href: "/wineries" },
               { label: "Holiday Bundles", href: "/bundles" },
-              { label: "Shipping Policy", href: "#" },
             ].map((item) => (
               <li key={item.label}>
                 <Link
@@ -103,7 +102,7 @@ export default function Footer() {
 
       <div className="max-w-screen-2xl mx-auto px-8 pt-16 mt-16 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="font-body text-xs text-tertiary opacity-50">
-          © 2024 Drink Now LTD. All Rights Reserved.
+          © 2026 Drink Now LTD. All Rights Reserved.
         </p>
         <div className="flex space-x-8">
           {["Integrity", "Heritage", "Craft"].map((word) => (

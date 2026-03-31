@@ -54,7 +54,7 @@ const bundles = [
     bottles: "6 Bottles",
     price: "₪547",
     salePrice: "₪457",
-    payLink: "https://www.drinknow.co.il",
+    payLink: "/",
     wines: [
       { vintage: "2024", name: "Kanakaris – Malagousia High Altitude (x2)", type: "Dry White", pairing: "Fish, salads, poultry" },
       { vintage: "2024", name: "Kanakaris – Roditis High Altitude (x2)", type: "Dry White", pairing: "Fish, salads, poultry" },
@@ -74,7 +74,7 @@ const bundles = [
     bottles: "6 Bottles",
     price: "₪948",
     salePrice: "₪790",
-    payLink: "https://www.drinknow.co.il",
+    payLink: "/",
     wines: [
       { vintage: "2024", name: "Kruger Rumpf – Blanc de Noirs Trocken", type: "Dry Rosé", pairing: "Fish, salads, poultry" },
       { vintage: "NV", name: "Kruger Rumpf – Pinot Brut SEKT", type: "White Sparkling", pairing: "Fish, vegetables, poultry, soup" },
@@ -96,7 +96,7 @@ const bundles = [
     bottles: "7 Bottles",
     price: "₪1,785",
     salePrice: "₪1,485",
-    payLink: "https://www.drinknow.co.il",
+    payLink: "/",
     wines: [
       { vintage: "2022", name: "Dom. Georges Lignier – Chambolle-Musigny", type: "Red", pairing: "Poultry, meat, mushrooms", score: "91 Atkin" },
       { vintage: "2022", name: "Von Hövel – Scharzhofberger Riesling GG", type: "Dry White", pairing: "Fish, poultry, asparagus", score: "96 Falstaff" },

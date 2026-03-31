@@ -147,15 +147,15 @@ export default function WineriesPage() {
               <article className="bg-surface-container p-10 flex flex-col items-start space-y-8 rounded-lg mt-0 md:mt-16">
                 <div className="flex items-center gap-4">
                   <div className="w-16 h-16 bg-primary flex items-center justify-center text-on-primary font-headline text-xl">
-                    SL
+                    VH
                   </div>
-                  <h3 className="font-headline text-2xl">Schloss Lieser</h3>
+                  <h3 className="font-headline text-2xl">Von Hövel</h3>
                 </div>
                 <p className="font-body text-on-surface-variant leading-relaxed">
-                  Thomas Haag&apos;s work at Schloss Lieser has elevated this estate to
-                  the pinnacle of the Mosel. Working with steep, blue slate slopes, they
-                  create wines of ethereal lightness and deep complexity, preserving the
-                  heritage of one of Germany&apos;s most historic castles.
+                  Located in the Saar region, Von Hövel produces some of Germany&apos;s most
+                  sought-after Rieslings. Their commitment to sustainable viticulture and
+                  meticulous winemaking results in wines of crystalline purity and remarkable
+                  aging potential.
                 </p>
                 <Link
                   href="/catalog"
@@ -201,13 +201,13 @@ export default function WineriesPage() {
                   <div className="space-y-16">
                     <div className="border-l-2 border-primary-container pl-8">
                       <h3 className="font-headline text-2xl mb-4">
-                        Domaine de la Roman&eacute;e-Conti
+                        Domaine Jean-Marc Pavelot
                       </h3>
                       <p className="font-body text-on-surface-variant mb-6">
-                        The definitive name in Burgundy. Their commitment to biodynamic
-                        farming and minimal intervention in the legendary limestone-rich
-                        soils produces Pinot Noir of incomparable depth and legendary
-                        status.
+                        Located in Savigny-lès-Beaune, this family domaine crafts elegant
+                        Pinot Noirs from carefully tended vineyard parcels. Their commitment
+                        to precision and balance results in wines of remarkable finesse and
+                        aging potential.
                       </p>
                       <Link
                         href="/catalog"
@@ -218,19 +218,18 @@ export default function WineriesPage() {
                     </div>
                     <div className="border-l-2 border-outline pl-8">
                       <h3 className="font-headline text-2xl mb-4">
-                        Ch&acirc;teau La Conseillante
+                        Domaine Bitouzet-Prieur
                       </h3>
                       <p className="font-body text-on-surface-variant mb-6">
-                        A jewel of Pomerol. This historic estate captures the elegance of
-                        Merlot and Cabernet Franc grown on unique clay and gravel soils,
-                        resulting in wines noted for their violet aromas and velvet
-                        texture.
+                        Based in Volnay, this respected producer specializes in elegant Burgundian
+                        Chardonnay and Pinot Noir. Their meticulous vineyard work and thoughtful
+                        winemaking create wines of remarkable purity and complexity.
                       </p>
                       <Link
                         href="/catalog"
                         className="inline-block px-8 py-3 outline outline-1 outline-outline text-primary-container text-xs uppercase tracking-widest hover:bg-surface-container transition-all"
                       >
-                        Explore the Ch&acirc;teau
+                        Explore the Domaine
                       </Link>
                     </div>
                   </div>

@@ -13,6 +13,7 @@ const wineCards = [
     vintage: "2022",
     price: "₪320",
     score: "96 Falstaff",
+    type: "Riesling",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVUtHD0ENaf43f8iVhdgUFFVWHVzf7TxomifKjPh-DjPMWirne2vw6mVxOGWj4MM6G6hvfAKpk-TFv1NurVQFT3Y5gBZ9hvaoYsLtvV-xCuA0BU45G-CeG8YgRGJZ1fjkgzvw8KiEWtLxavCFxg-rTDvZSzNVj2pvjyDKZd3tu5O3xSWnf5ZlZQ_Hg_XznAG_XsjL4MxClJMwGNvdIDp2t0N9E1u2DVWjn9MsCd9heiaTO1z-QWQ9-CnWznxeeRGQHS6VXkb00",
     href: "/catalog/von-hovel-scharzhofberger-gg",
   },
@@ -23,8 +24,9 @@ const wineCards = [
     vintage: "2022",
     price: "₪390",
     score: "91 Atkin",
+    type: "Pinot Noir",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBv6RtOIwrO6E3hgvd0Htu0Q8I1FCspjkA50KWdHe3QpEVY_YPb3L7Cw_wYZm7wPGqJ9dHpP9t-V39lfrWDJ65xsFo7JaugUsV5g2bOGTD4j1QmAxDggGc-Bu3i1jh2xzYXClsp_8s35lCtmTknGpVZAyT1Nh2UfH7E_PGWtiiqejax82falmdLWQx70Qv_v_7oQGyIQ-O7spkif6aSQvZPUnF_VllFnryy2gSXMYCY-D8bIETMbBu9Ha5qjZWB1HKwTBY97roa",
-    href: "/catalog/lignier-chambolle",
+    href: "/catalog/lignier-chambolle-2022",
   },
   {
     region: "Moulin-à-Vent, France",
@@ -33,6 +35,7 @@ const wineCards = [
     vintage: "2014",
     price: "₪445",
     score: "17.5 Jancis Robinson",
+    type: "Red",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBv6RtOIwrO6E3hgvd0Htu0Q8I1FCspjkA50KWdHe3QpEVY_YPb3L7Cw_wYZm7wPGqJ9dHpP9t-V39lfrWDJ65xsFo7JaugUsV5g2bOGTD4j1QmAxDggGc-Bu3i1jh2xzYXClsp_8s35lCtmTknGpVZAyT1Nh2UfH7E_PGWtiiqejax82falmdLWQx70Qv_v_7oQGyIQ-O7spkif6aSQvZPUnF_VllFnryy2gSXMYCY-D8bIETMbBu9Ha5qjZWB1HKwTBY97roa",
     href: "/catalog/labruyere-clos-monopole",
   },
@@ -43,6 +46,7 @@ const wineCards = [
     vintage: "2024",
     price: "₪130",
     score: null,
+    type: "White",
     img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVUtHD0ENaf43f8iVhdgUFFVWHVzf7TxomifKjPh-DjPMWirne2vw6mVxOGWj4MM6G6hvfAKpk-TFv1NurVQFT3Y5gBZ9hvaoYsLtvV-xCuA0BU45G-CeG8YgRGJZ1fjkgzvw8KiEWtLxavCFxg-rTDvZSzNVj2pvjyDKZd3tu5O3xSWnf5ZlZQ_Hg_XznAG_XsjL4MxClJMwGNvdIDp2t0N9E1u2DVWjn9MsCd9heiaTO1z-QWQ9-CnWznxeeRGQHS6VXkb00",
     href: "/catalog/kanakaris-malagousia",
   },
@@ -254,6 +258,11 @@ function FadeInSection({
 }
 
 export default function HomePage() {
+  const [libraryFilter, setLibraryFilter] = useState("All Regions");
+  const filteredLibrary = libraryFilter === "All Regions"
+    ? wineCards
+    : wineCards.filter(w => w.type === libraryFilter);
+
   return (
     <main>
       {/* Hero */}
@@ -343,24 +352,25 @@ export default function HomePage() {
                 </p>
               </div>
               <div className="flex space-x-8 font-label text-xs uppercase tracking-widest text-outline">
-                <button className="text-primary-container border-b border-primary-container pb-2">
-                  All Regions
-                </button>
-                <button className="hover:text-primary-container transition-colors pb-2">
-                  Riesling
-                </button>
-                <button className="hover:text-primary-container transition-colors pb-2">
-                  Pinot Noir
-                </button>
-                <button className="hover:text-primary-container transition-colors pb-2">
-                  Sparkling
-                </button>
+                {["All Regions", "Riesling", "Pinot Noir", "White"].map(filter => (
+                  <button
+                    key={filter}
+                    onClick={() => setLibraryFilter(filter)}
+                    className={`transition-colors pb-2 ${
+                      libraryFilter === filter
+                        ? "text-primary-container border-b border-primary-container"
+                        : "hover:text-primary-container"
+                    }`}
+                  >
+                    {filter}
+                  </button>
+                ))}
               </div>
             </div>
           </FadeInSection>
 
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-8 gap-y-10 md:gap-y-16">
-            {wineCards.map((wine, i) => (
+            {filteredLibrary.map((wine, i) => (
               <FadeInSection key={wine.name} delay={i * 0.1}>
                 <Link href={wine.href} className="group cursor-pointer block">
                   <div className="aspect-[3/4] bg-white rounded mb-6 flex items-center justify-center p-8 overflow-hidden editorial-shadow">
