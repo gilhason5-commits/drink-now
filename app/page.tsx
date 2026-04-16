@@ -7,17 +7,6 @@ import Footer from "./components/Footer";
 
 const wineCards = [
   {
-    region: "Mosel, Germany",
-    name: "Vom Schiefer Riesling Feinherb",
-    producer: "Carlo Schmitt",
-    vintage: "2024",
-    price: "₪130",
-    score: null,
-    type: "White",
-    img: "/wines/carlo-schmitt-feinherb.png",
-    href: "/catalog/carlo-schmitt-feinherb",
-  },
-  {
     region: "Nahe, Germany",
     name: "Pinot Brut – SEKT",
     producer: "Kruger Rumpf",
@@ -29,26 +18,37 @@ const wineCards = [
     href: "/catalog/kruger-rump-sekt",
   },
   {
-    region: "Côte de Nuits, France",
-    name: "Gevrey-Chambertin",
-    producer: "Marchand Grillot",
-    vintage: "2014",
-    price: "₪430",
-    score: "94 Atkin",
-    type: "Red",
-    img: "/wines/marchand-gevrey.png",
-    href: "/catalog/marchand-gevrey-centenaire-2014",
+    region: "Nahe, Germany",
+    name: "Blanc de Noirs Trocken",
+    producer: "Kruger Rumpf",
+    vintage: "2024",
+    price: "₪155",
+    score: null,
+    type: "Rosé",
+    img: "/wines/kruger-rump-blanc-de-noirs.png",
+    href: "/catalog/kruger-rump-blanc-de-noirs",
   },
   {
-    region: "Peloponnese, Greece",
-    name: "Malagousia High Altitude",
-    producer: "Kanakaris Winery",
-    vintage: "2024",
-    price: "₪130",
-    score: null,
-    type: "White",
-    img: "/wines/kanakaris-malagousia.png",
-    href: "/catalog/kanakaris-malagousia",
+    region: "Moulin-à-Vent, France",
+    name: "Le Clos Monopole",
+    producer: "Dom. Labruyère",
+    vintage: "2014",
+    price: "₪295",
+    score: "17.5 Jancis",
+    type: "Red",
+    img: "/wines/labruyere-bottle-2.png",
+    href: "/catalog/labruyere-clos-monopole-2014",
+  },
+  {
+    region: "Moulin-à-Vent, France",
+    name: "Bourgogne Gamay, Old Vines",
+    producer: "Dom. Labruyère",
+    vintage: "2021",
+    price: "₪110",
+    score: "16 Jancis",
+    type: "Red",
+    img: "/wines/labruyere-bottle-1.png",
+    href: "/catalog/labruyere-gamay-2021",
   },
 ];
 
@@ -373,13 +373,13 @@ export default function HomePage() {
             {filteredLibrary.map((wine, i) => (
               <FadeInSection key={wine.name} delay={i * 0.1}>
                 <Link href={wine.href} className="group cursor-pointer block">
-                  <div className="aspect-[3/4] bg-transparent rounded mb-6 flex items-center justify-center p-8 overflow-hidden drop-shadow-2xl">
+                  <div className="aspect-[3/4] bg-transparent mb-6 flex items-center justify-center p-4 overflow-hidden">
                     <motion.img
                       alt="Wine Bottle"
-                      className="max-h-full object-contain"
+                      className="h-full w-auto object-contain mix-blend-multiply drop-shadow-xl"
                       src={wine.img}
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.5 }}
+                      whileHover={{ y: -6 }}
+                      transition={{ duration: 0.4 }}
                     />
                   </div>
                   <span className="font-label text-[10px] uppercase tracking-[0.2em] text-outline mb-1 block">
