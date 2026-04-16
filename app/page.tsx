@@ -80,8 +80,8 @@ const MAP_PINS = [
     sublabel: "Germany",
     dot: "#3c000b",
     pulse: true,
-    // Mosel: 7°E, 50°N  → left≈33%, top≈52%
-    top: "52%", left: "33%",
+    // Mosel: 7°E, 50°N  → left≈42%, top≈52%
+    top: "52%", left: "42%",
     producers: ["Carlo Schmitt", "Von Hövel", "Hermann Ludes"],
     wines: "Riesling Kabinett · GG · Gold Reserve · Feineherb",
   },
@@ -91,8 +91,8 @@ const MAP_PINS = [
     sublabel: "Germany",
     dot: "#3c000b",
     pulse: false,
-    // Nahe: 8°E, 49.5°N → left≈35%, top≈53%
-    top: "58%", left: "35%",
+    // Nahe: 8°E, 49.5°N → left≈44%, top≈53%
+    top: "58%", left: "44%",
     producers: ["Kruger Rumpf"],
     wines: "Pinot Rosé · Blanc de Noirs · SEKT Brut",
   },
@@ -102,8 +102,8 @@ const MAP_PINS = [
     sublabel: "France",
     dot: "#630018",
     pulse: false,
-    // Burgundy: 5°E, 47°N → left≈29%, top≈60%
-    top: "60%", left: "28%",
+    // Burgundy: 5°E, 47°N → left≈37%, top≈60%
+    top: "60%", left: "37%",
     producers: ["Marchand Grillot", "Pavelot", "Bitouzet-Prieur", "Meix-Foulot", "Pinson", "+ 6 more"],
     wines: "Village · 1er Cru · Grand Cru",
   },
@@ -113,8 +113,8 @@ const MAP_PINS = [
     sublabel: "Bordeaux, France",
     dot: "#630018",
     pulse: false,
-    // Bordeaux: -0.5°E, 44.8°N → left≈18%, top≈65%
-    top: "65%", left: "18%",
+    // Bordeaux: -0.5°E, 44.8°N → left≈27%, top≈65%
+    top: "65%", left: "27%",
     producers: ["Chateau Rouget"],
     wines: "Pomerol 2015 · 2016 · 2018",
   },
@@ -124,8 +124,8 @@ const MAP_PINS = [
     sublabel: "Greece",
     dot: "#A63744",
     pulse: false,
-    // Peloponnese: 22°E, 37.5°N → left≈62%, top≈82%
-    top: "82%", left: "62%",
+    // Peloponnese: 22°E, 37.5°N → left≈71%, top≈82%
+    top: "82%", left: "71%",
     producers: ["Kanakaris Winery"],
     wines: "Roditis · Malagousia",
   },
