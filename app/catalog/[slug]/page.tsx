@@ -559,9 +559,38 @@ const defaultWine: WineDetail = {
   pairings: PAIRINGS_FISH,
 };
 
+const IMAGE_OVERRIDE: Record<string, string> = {
+  "carlo-schmitt-beerenauslese": "/wines/carlo-schmitt-beerenauslese.jpg",
+  "carlo-schmitt-feinherb": "/wines/carlo-schmitt-feinherb.png",
+  "carlo-schmitt-herrenberg-gg": "/wines/carlo-schmitt-herrenberg-gg.jpg",
+  "carlo-schmitt-kabinett": "/wines/carlo-schmitt-kabinett.png",
+  "kanakaris-malagousia": "/wines/kanakaris-malagousia.png",
+  "kruger-rump-blanc-de-noirs": "/wines/kruger-rump-blanc-de-noirs.png",
+  "kruger-rump-rose": "/wines/kruger-rump-rose.jpg",
+  "kruger-rump-sekt": "/wines/kruger-rump-sekt.png",
+  "labruyere-gamay-2021": "/wines/labruyere-bottle-1.png",
+  "labruyere-gamay-2022": "/wines/labruyere-bottle-1.png",
+  "labruyere-coeur-2014": "/wines/labruyere-bottle-3.png",
+  "labruyere-clos-monopole-2014": "/wines/labruyere-bottle-2.png",
+  "marchand-bourgogne-2022": "/wines/marchand-bourgogne.png",
+  "marchand-bourgogne-2020": "/wines/marchand-bourgogne.png",
+  "marchand-chambolle-2022": "/wines/marchand-chambolle.png",
+  "marchand-gevrey-centenaire-2014": "/wines/marchand-gevrey.png",
+  "marchand-ruchottes-2021": "/wines/marchand-ruchottes.png",
+  "pinson-chablis-2023": "/wines/pinson-chablis-2023.jpg",
+  "pinson-chablis-authentique-2021": "/wines/pinson-chablis-authentique-2021.jpg",
+  "pinson-chablis-authentique-2022": "/wines/pinson-chablis-authentique-2022.jpg",
+  "pinson-chablis-le-clos-2022": "/wines/pinson-chablis-le-clos-2022.jpg",
+  "pinson-chablis-mademoiselle-2022": "/wines/pinson-chablis-mademoiselle-2022.jpg",
+  "pinson-chablis-mont-milieu-2022": "/wines/pinson-chablis-mont-milieu-2022.jpg",
+  "pinson-chablis-montmain-2022": "/wines/pinson-chablis-montmain-2022.jpg",
+  "pinson-chablis-vaillon-2022": "/wines/pinson-chablis-vaillon-2022.jpg",
+};
+
 export default function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
-  const wine = wineData[slug] ?? defaultWine;
+  const baseWine = wineData[slug] ?? defaultWine;
+  const wine = { ...baseWine, img: IMAGE_OVERRIDE[slug] || baseWine.img };
 
   return (
     <main className="pt-32 pb-24 px-6 md:px-12 max-w-screen-2xl mx-auto">
