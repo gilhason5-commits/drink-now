@@ -112,7 +112,7 @@ export default function WineriesPage() {
                 <img
                   alt="Mosel River Valley"
                   className="w-full h-64 object-cover rounded-xl editorial-shadow"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGYWlHu5bJDNzW5RqLA2SFNi-dO_Y8pEG1l46MAyNNsfkWNYlnrmlYHxaj5xI1e9XXml6tp3-RqLuoT_G9XRdNh5CsuUB_Wr4i38vqW4lyhHueIbwAY2yMExZlyOAPUe4gNe1VXkzVUemoSP48euO2uVjp6rTLvWJslKxkRrh74CcJH7VEq7iD0DjSCZejAIBMwqO7GDZ8cQlbprI3Nhz9kl7RRJlztlj6kMFn7ENbIn5ssCCdrJTjtE_W655ESp_WRgbtAvkX"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/080110_zell_mosel.JPG/1280px-080110_zell_mosel.JPG"
                 />
               </div>
             </div>
