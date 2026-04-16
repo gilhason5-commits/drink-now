@@ -7,15 +7,15 @@ import Footer from "./components/Footer";
 
 const wineCards = [
   {
-    region: "Chablis, France",
-    name: "Chablis Grand Cru, Le Clos",
-    producer: "Dom. Pinson",
-    vintage: "2022",
-    price: "₪465",
-    score: "94 Atkin",
+    region: "Mosel, Germany",
+    name: "Vom Schiefer Riesling Feinherb",
+    producer: "Carlo Schmitt",
+    vintage: "2024",
+    price: "₪130",
+    score: null,
     type: "White",
-    img: "/wines/pinson-chablis-authentique-2022.jpg",
-    href: "/catalog/pinson-chablis-authentique-2022",
+    img: "/wines/carlo-schmitt-feinherb.png",
+    href: "/catalog/carlo-schmitt-feinherb",
   },
   {
     region: "Nahe, Germany",
@@ -373,7 +373,7 @@ export default function HomePage() {
             {filteredLibrary.map((wine, i) => (
               <FadeInSection key={wine.name} delay={i * 0.1}>
                 <Link href={wine.href} className="group cursor-pointer block">
-                  <div className="aspect-[3/4] bg-white rounded mb-6 flex items-center justify-center p-8 overflow-hidden editorial-shadow">
+                  <div className="aspect-[3/4] bg-transparent rounded mb-6 flex items-center justify-center p-8 overflow-hidden drop-shadow-2xl">
                     <motion.img
                       alt="Wine Bottle"
                       className="max-h-full object-contain"
