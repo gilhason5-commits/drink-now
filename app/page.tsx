@@ -59,7 +59,7 @@ const founders = [
     align: "right",
   },
   {
-    name: "Eyal Hasson",
+    name: "Eyal Jacobi",
     bio: "With a background in fine-dining logistics and a palate refined by years of European exploration, Al oversees our operations. He ensures that every bottle, from the Grand Crus of Burgundy to the hidden gems of the Peloponnese, arrives in pristine condition.",
     align: "left",
   },

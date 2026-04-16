@@ -81,7 +81,7 @@ test.describe('2. Key UI Elements', () => {
     // 3 מייסדים
     await scrollTo(page, 'text=Noam Jacobi');
     await expect(page.locator('text=Noam Jacobi')).toBeVisible();
-    await expect(page.locator('text=Eyal Hasson')).toBeVisible();
+    await expect(page.locator('text=Eyal Jacobi')).toBeVisible();
     await expect(page.locator('text=Amir Scheinman')).toBeVisible();
 
     await page.screenshot({ path: 'tests/screenshots/home-founders.png' });
